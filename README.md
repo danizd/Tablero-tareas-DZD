@@ -1,20 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Tablero DZD
 
-# Run and deploy your AI Studio app
+Una aplicación moderna de gestión de tareas y eventos, diseñada par optimizar la productividad personal y de equipo.
 
-This contains everything you need to run your app locally.
+## Características Principales
 
-View your app in AI Studio: https://ai.studio/apps/drive/1yyy_60GPWPdNNVCKEXcwGydQMvERmApQ
+*   **Dashboard Interactivo**: Vista general del estado de tus proyectos y tareas.
+*   **Gestión de Tareas**:
+    *   **Vista Kanban**: Organiza tareas por estado (Pendiente, En Progreso, etc.) arrastrando y soltando (visual).
+    *   **Vista de Lista**: Tabla detallada con opciones de filtrado avanzado por prioridad, tipo, estado y fechas.
+    *   CRUD completo de tareas.
+*   **Calendario Avanzado**:
+    *   Visualización mensual de Tareas y Eventos.
+    *   **Eventos Multidía**: Soporte para eventos que abarcan varios días (vacaciones, sprints, etc.).
+    *   **Interacción Directa**: Haz clic en un día para crear Tareas o Eventos. Haz clic en un ítem para editarlo.
+*   **Personalización**:
+    *   Modo Oscuro / Claro.
+    *   Categorización por Prioridad y Tipo.
+*   **Persistencia Local**: Los datos se guardan en el navegador para que no pierdas tu progreso.
 
-## Run Locally
+## Tecnologías
 
-**Prerequisites:**  Node.js
+*   React + TypeScript
+*   Vite
+*   Tailwind CSS
+*   Lucide React (Iconos)
 
+## Ejecutar Localmente
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1.  Instalar dependencias:
+    ```bash
+    npm install
+    ```
+2.  Iniciar el servidor de desarrollo:
+    ```bash
+    npm run dev
+    ```
+3.  Abrir en el navegador (generalmente http://localhost:5173)

@@ -7,8 +7,14 @@ services:
       dockerfile: Dockerfile
       args:
         - GEMINI_API_KEY=${GEMINI_API_KEY}
-    ports:
-      - "3000:80"
+    container_name: mi-app  # Cambia esto por el nombre de tu app
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     restart: unless-stopped
+    networks:
+      - proxy_network
+    # NO exponemos puertos, solo acceso via NPM
+
+networks:
+  proxy_network:
+    external: true

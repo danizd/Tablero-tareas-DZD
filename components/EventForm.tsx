@@ -40,7 +40,7 @@ export const EventForm: React.FC<EventFormProps> = ({ initialData, onSubmit, onC
                 <input
                     required
                     type="text"
-                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                     value={formData.title}
                     onChange={e => setFormData({ ...formData, title: e.target.value })}
                 />
@@ -50,7 +50,7 @@ export const EventForm: React.FC<EventFormProps> = ({ initialData, onSubmit, onC
                 <div>
                     <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Tipo</label>
                     <select
-                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                         value={formData.type}
                         onChange={e => setFormData({ ...formData, type: e.target.value as EventType })}
                     >
@@ -65,7 +65,7 @@ export const EventForm: React.FC<EventFormProps> = ({ initialData, onSubmit, onC
                     <input
                         type="date"
                         required
-                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                         value={formData.startDate}
                         onChange={e => setFormData({ ...formData, startDate: e.target.value })}
                     />
@@ -75,7 +75,7 @@ export const EventForm: React.FC<EventFormProps> = ({ initialData, onSubmit, onC
                     <input
                         type="date"
                         required
-                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                         value={formData.endDate}
                         onChange={e => setFormData({ ...formData, endDate: e.target.value })}
                     />
@@ -86,7 +86,7 @@ export const EventForm: React.FC<EventFormProps> = ({ initialData, onSubmit, onC
                 <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Descripción</label>
                 <textarea
                     rows={3}
-                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                     value={formData.description}
                     onChange={e => setFormData({ ...formData, description: e.target.value })}
                 />

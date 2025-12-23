@@ -45,7 +45,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
         <input
           required
           type="text"
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
           value={formData.title}
           onChange={e => setFormData({ ...formData, title: e.target.value })}
         />
@@ -55,7 +55,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
         <div>
           <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Tipo</label>
           <select
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
             value={formData.type}
             onChange={e => setFormData({ ...formData, type: e.target.value as TaskType })}
           >
@@ -65,7 +65,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
         <div>
           <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Prioridad</label>
           <select
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
             value={formData.priority}
             onChange={e => setFormData({ ...formData, priority: e.target.value as Priority })}
           >
@@ -76,10 +76,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
 
       <div className="grid grid-cols-2 gap-4">
          <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Cliente</label>
+          <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Cliente/proyecto</label>
           <input
             type="text"
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
             value={formData.client}
             onChange={e => setFormData({ ...formData, client: e.target.value })}
           />
@@ -89,7 +89,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
           <input
             type="number"
             min="0"
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
             value={formData.estimatedHours}
             onChange={e => setFormData({ ...formData, estimatedHours: Number(e.target.value) })}
           />
@@ -100,7 +100,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
         <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Fecha de Entrega</label>
         <input
           type="date"
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
           value={formData.dueDate}
           onChange={e => setFormData({ ...formData, dueDate: e.target.value })}
         />
@@ -110,7 +110,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSubmit, onCan
         <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">Descripción</label>
         <textarea
           rows={3}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white"
           value={formData.description}
           onChange={e => setFormData({ ...formData, description: e.target.value })}
         />

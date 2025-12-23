@@ -63,7 +63,7 @@ export const ListView: React.FC<ListViewProps> = ({ tasks, onEditTask }) => {
     >
         <div className="flex items-center space-x-1">
             <span>{label}</span>
-            <Icons.ArrowUpDown className={`h-3 w-3 ${sortField === field ? 'text-indigo-500' : 'text-slate-300'}`} />
+            <Icons.ArrowUpDown className={`h-3 w-3 ${sortField === field ? 'text-orange-500' : 'text-slate-300'}`} />
         </div>
     </th>
   );
@@ -75,7 +75,7 @@ export const ListView: React.FC<ListViewProps> = ({ tasks, onEditTask }) => {
           <thead className="bg-slate-50 dark:bg-slate-900/50">
             <tr>
               <Th field="title" label="Tarea" />
-              <Th field="client" label="Cliente" />
+              <Th field="client" label="Cliente/proyecto" />
               <Th field="type" label="Tipo" />
               <Th field="priority" label="Prioridad" />
               <Th field="status" label="Estado" />

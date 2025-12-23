@@ -83,10 +83,10 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ tasks, events, onDat
           return (
             <div
               key={day}
-              className={`group relative min-h-[100px] border-b border-r border-slate-100 p-2 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-700/30 ${isToday ? 'bg-indigo-50/50 dark:bg-indigo-900/10' : ''}`}
+              className={`group relative min-h-[100px] border-b border-r border-slate-100 p-2 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-700/30 ${isToday ? 'bg-orange-50/50 dark:bg-orange-900/10' : ''}`}
               onClick={() => onDateSelect(new Date(year, month, day).toISOString())}
             >
-              <span className={`flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium ${isToday ? 'bg-indigo-600 text-white' : 'text-slate-700 dark:text-slate-300'}`}>
+              <span className={`flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium ${isToday ? 'bg-orange-600 text-white' : 'text-slate-700 dark:text-slate-300'}`}>
                 {day}
               </span>
 

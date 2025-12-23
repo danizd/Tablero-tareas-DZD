@@ -42,7 +42,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ tasks }) => {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { label: 'Total Tareas', value: stats.total, color: 'text-indigo-600' },
+          { label: 'Total Tareas', value: stats.total, color: 'text-orange-600' },
           { label: 'Completadas', value: stats.completed, color: 'text-green-600' },
           { label: 'En Progreso', value: stats.inProgress, color: 'text-blue-600' },
           { label: 'Total Horas', value: `${stats.hours}h`, color: 'text-purple-600' },
@@ -108,7 +108,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ tasks }) => {
                <thead className="bg-slate-50 text-xs uppercase text-slate-700 dark:bg-slate-700 dark:text-slate-300">
                  <tr>
                    <th className="px-6 py-3">Tarea</th>
-                   <th className="px-6 py-3">Cliente</th>
+                   <th className="px-6 py-3">Cliente/proyecto</th>
                    <th className="px-6 py-3">Fecha</th>
                    <th className="px-6 py-3">Estado</th>
                  </tr>

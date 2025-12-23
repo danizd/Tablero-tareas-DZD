@@ -181,7 +181,7 @@ function App() {
   const NavItem = ({ mode, icon: Icon, label }: { mode: ViewMode, icon: any, label: string }) => (
     <button
       onClick={() => setView(mode)}
-      className={`flex w-full items-center space-x-3 rounded-lg px-4 py-3 font-medium transition-colors ${view === mode ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400' : 'text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800'}`}
+      className={`flex w-full items-center space-x-3 rounded-lg px-4 py-3 font-medium transition-colors ${view === mode ? 'bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400' : 'text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800'}`}
     >
       <Icon className="h-5 w-5" />
       <span>{label}</span>
@@ -198,8 +198,8 @@ function App() {
         `}
       >
         <div className="flex h-16 items-center justify-between border-b border-slate-200 px-6 dark:border-slate-800">
-          <div className="flex items-center gap-2 font-bold text-indigo-600 dark:text-indigo-400">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white">
+          <div className="flex items-center gap-2 font-bold text-orange-600 dark:text-orange-400">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-600 text-white">
               <Icons.LayoutDashboard className="h-5 w-5" />
             </div>
             <span className="text-xl whitespace-nowrap">Tablero DZD</span>
@@ -216,6 +216,59 @@ function App() {
           <NavItem mode="calendar" icon={Icons.Calendar} label="Calendario" />
         </nav>
 
+        {/* Client/Project List Section */}
+        <div className="border-t border-slate-200 p-4 dark:border-slate-800">
+          <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            Clientes/proyectos
+          </h3>
+          <div className="space-y-1">
+            {(() => {
+              const activeTasksByClient = filteredTasks
+                .filter(t => t.status !== Status.COMPLETED)
+                .reduce((acc, task) => {
+                  const client = task.client || 'Sin cliente/proyecto';
+                  acc[client] = (acc[client] || 0) + 1;
+                  return acc;
+                }, {} as Record<string, number>);
+
+              const sortedClients = Object.entries(activeTasksByClient)
+                .sort((a, b) => b[1] - a[1]);
+
+              if (sortedClients.length === 0) {
+                return (
+                  <p className="text-sm text-slate-400 dark:text-slate-500">
+                    No hay tareas activas
+                  </p>
+                );
+              }
+
+              return sortedClients.map(([client, count]) => (
+                <button
+                  key={client}
+                  onClick={() => setFilters({ ...filters, client })}
+                  className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-800 ${
+                    filters.client === client 
+                      ? 'bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400' 
+                      : 'text-slate-600 dark:text-slate-400'
+                  }`}
+                >
+                  <span className="truncate">{client}</span>
+                  <span className="ml-2 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-slate-200 px-1.5 text-xs font-medium dark:bg-slate-700">
+                    {count}
+                  </span>
+                </button>
+              ));
+            })()}
+          </div>
+          {filters.client && (
+            <button
+              onClick={() => setFilters({ ...filters, client: '' })}
+              className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
+            >
+              Limpiar filtro
+            </button>
+          )}
+        </div>
 
       </aside>
 
@@ -235,7 +288,7 @@ function App() {
               <input
                 type="text"
                 placeholder="Buscar tareas..."
-                className="h-10 w-64 rounded-full border border-slate-200 bg-slate-50 pl-10 pr-4 text-sm focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                className="h-10 w-64 rounded-full border border-slate-200 bg-slate-50 pl-10 pr-4 text-sm focus:border-orange-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 value={filters.search}
                 onChange={(e) => setFilters({ ...filters, search: e.target.value })}
               />
@@ -253,7 +306,7 @@ function App() {
               <span className="hidden sm:inline">Nueva Tarea</span>
               <span className="sm:hidden">Nueva</span>
             </Button>
-            <div className="h-8 w-8 rounded-full bg-indigo-100 ring-2 ring-white dark:ring-slate-800">
+            <div className="h-8 w-8 rounded-full bg-orange-100 ring-2 ring-white dark:ring-slate-800">
               <img src="https://picsum.photos/100/100" alt="Avatar" className="h-full w-full rounded-full object-cover" />
             </div>
           </div>
@@ -267,7 +320,7 @@ function App() {
             </div>
             <div className="flex flex-wrap gap-2">
               <select
-                className="rounded-lg border-0 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-indigo-500 dark:bg-slate-800 dark:text-slate-300"
+                className="rounded-lg border-0 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-orange-500 dark:bg-slate-800 dark:text-slate-300"
                 value={filters.priority}
                 onChange={(e) => setFilters({ ...filters, priority: e.target.value as any })}
               >
@@ -275,7 +328,7 @@ function App() {
                 {Object.values(Priority).map(p => <option key={p} value={p}>{p}</option>)}
               </select>
               <select
-                className="rounded-lg border-0 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-indigo-500 dark:bg-slate-800 dark:text-slate-300"
+                className="rounded-lg border-0 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-orange-500 dark:bg-slate-800 dark:text-slate-300"
                 value={filters.type}
                 onChange={(e) => setFilters({ ...filters, type: e.target.value as any })}
               >
@@ -283,7 +336,7 @@ function App() {
                 {Object.values(TaskType).map(t => <option key={t} value={t}>{t}</option>)}
               </select>
               <select
-                className="rounded-lg border-0 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-indigo-500 dark:bg-slate-800 dark:text-slate-300"
+                className="rounded-lg border-0 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-orange-500 dark:bg-slate-800 dark:text-slate-300"
                 value={filters.status}
                 onChange={(e) => setFilters({ ...filters, status: e.target.value as any })}
               >
@@ -380,7 +433,7 @@ function App() {
               setEditingTask(null); // Ensure clean state
               setIsTaskModalOpen(true);
             }}
-            className="flex flex-col items-center justify-center p-6 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-indigo-500 transition-all dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
+            className="flex flex-col items-center justify-center p-6 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-orange-500 transition-all dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
           >
             <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-3 dark:bg-blue-900/30 dark:text-blue-400">
               <Icons.LayoutDashboard className="h-6 w-6" />
@@ -395,7 +448,7 @@ function App() {
               setEditingEvent(null); // Ensure clean state
               setIsEventModalOpen(true);
             }}
-            className="flex flex-col items-center justify-center p-6 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-indigo-500 transition-all dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
+            className="flex flex-col items-center justify-center p-6 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-orange-500 transition-all dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
           >
             <div className="h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mb-3 dark:bg-purple-900/30 dark:text-purple-400">
               <Icons.Calendar className="h-6 w-6" />

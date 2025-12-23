@@ -20,11 +20,21 @@ RUN npm run build
 # Production Stage
 FROM nginx:alpine
 
+# Install apache2-utils for htpasswd
+RUN apk add --no-cache apache2-utils
+
 # Copy built assets from builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Build arguments for authentication
+ARG AUTH_USER=admin
+ARG AUTH_PASS=changeme
+
+# Generate .htpasswd file
+RUN htpasswd -bc /etc/nginx/.htpasswd ${AUTH_USER} ${AUTH_PASS}
 
 # Expose port 80
 EXPOSE 80

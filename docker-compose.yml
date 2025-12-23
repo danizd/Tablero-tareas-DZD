@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
       args:
         - GEMINI_API_KEY=${GEMINI_API_KEY}
+        - AUTH_USER=${AUTH_USER:-admin}
+        - AUTH_PASS=${AUTH_PASS:-changeme}
     container_name: tablero-tareas-dzd
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}

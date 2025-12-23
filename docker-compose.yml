@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       args:
         - GEMINI_API_KEY=${GEMINI_API_KEY}
-    container_name: mi-app  # Cambia esto por el nombre de tu app
+    container_name: tablero-tareas-dzd
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     restart: unless-stopped

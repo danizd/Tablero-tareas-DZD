@@ -26,6 +26,7 @@ jobs:
             echo "AUTH_USER=${{ secrets.AUTH_USER }}" >> .env
             echo "AUTH_PASS=${{ secrets.AUTH_PASS }}" >> .env
             docker compose down
-            docker compose build --no-cache
+            export $(cat .env | xargs)
+            docker compose build --no-cache --build-arg GEMINI_API_KEY="${GEMINI_API_KEY}" --build-arg AUTH_USER="${AUTH_USER}" --build-arg AUTH_PASS="${AUTH_PASS}"
             docker compose up -d
             docker image prune -af
